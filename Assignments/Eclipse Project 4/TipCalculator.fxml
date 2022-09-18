@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+// NAME:     Mark Darling
+// DATE:     10/25/20
+// CLASS:    COP 3330-02Z  __  Object Oriented Programming
+//
+//								     *************************************
+// PROGRAM:  Eclipse Project 4:      **        TipCalculator.zip        **
+//								     *************************************
+//								     *      TipCalculator.java           *
+//								     *      TipCalculatorController.java *
+//								     *      TipCalculator.fxml           *
+//								     *************************************
+////////////////////////////////////////////////////////////////////////////////
+
+/*
+PROGRAM INSTRUCTIONS:			13.6 (Tip Calculator Modification)
+
+The Tip Calculator app from Section 12.5 does not need a Button to perform its
+calculations. Reimplement this app to use property listeners to perform the
+calculations whenever the user modifies the bill amount or changes the custom
+tip percentage. Also use a property binding to update the Label that displays
+the tip percentage.
+
+Once your changes are complete, your interface should no longer have a Calculate
+button and the tip should be displayed as you enter the amount of the bill,
+changing as each digit is typed. It should also change as the tip percent slider
+is moved. The displayed tip percent amount should also change as the slider is
+moved (just like it already did), but with the line of code
+
+"tipPercentageLabel.setText(percent.format(tipPercentage));"
+
+commented out. Instead of that line of code, use property binding.
+
+If you get an Access restriction message, try downloading an Eclipse distribution
+that is set up with JavaFX. You can find one at Efxclipse install (Links to an
+external site.). I have tested that one.
+
+Submit your entire project in a zip file Your entire project includes all folders
+and files. Just zip the project folder (possibly named  TipCalculator) and submit
+the zip file. Do not just zip the source files.
+
+Your name must appear at the top of all Java source files. This is worth points.
+
+*/
+////////////////////////////////////////////////////////////////////////////////
+
+-->
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane hgap="8.0"
+		  maxHeight="-Infinity"
+		  maxWidth="-Infinity"
+		  minHeight="-Infinity"
+		  minWidth="-Infinity"
+		  xmlns="http://javafx.com/javafx/8.0.60"
+		  xmlns:fx="http://javafx.com/fxml/1"
+		  fx:controller="TipCalculatorController"
+		  >
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   <!--   
+	  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   -->
+   </rowConstraints>
+   <children>
+      <Label text="Amount" />
+      <Label fx:id="tipPercentageLabel" text="15%" GridPane.rowIndex="1" />
+      <Label text="Tip" GridPane.rowIndex="2" />
+      <Label text="Total" GridPane.rowIndex="3" />
+      <TextField fx:id="amountTextField"
+	  			 GridPane.columnIndex="1"
+				 />
+      <TextField fx:id="tipTextField"
+				 editable="false"
+				 focusTraversable="false"
+				 GridPane.columnIndex="1"
+				 GridPane.rowIndex="2"
+				 />
+      <TextField fx:id="totalTextField"
+	  			 editable="false"
+				 focusTraversable="false"
+				 GridPane.columnIndex="1"
+				 GridPane.rowIndex="3"
+				 />
+      <Slider fx:id="tipPercentageSlider"
+	  		  blockIncrement="1"
+			  majorTickUnit="1"
+			  max="30.0"
+			  min="0.0"
+			  minorTickCount="0"
+			  snapToTicks="True"
+			  value="15.0"
+			  GridPane.columnIndex="1"
+			  GridPane.rowIndex="1"
+			  />
+   <!--   
+	  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#calculateButtonPressed" text="Calculate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+   -->
+   </children>
+   <padding>
+      <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
+   </padding>
+</GridPane>
